@@ -37,3 +37,17 @@ for col, outlier_df in outliers.items():
   print(f"Number of outliers in {col}: {len(outlier_df)}")
 
 sns.boxplot(x='released_month',y='released_year', data=df)
+
+
+corr_matrix = df.corr()
+
+fig, ax = plt.subplots(figsize=(15,15))
+
+sns.heatmap(corr_matrix, annot=True, fmt=".2f", ax=ax, cmap="coolwarm")
+
+plt.show()
+
+#Reading correlation matrix
+#1 means completly dependent
+#0 means neutral
+#-1 means completely independent
